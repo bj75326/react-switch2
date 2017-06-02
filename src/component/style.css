@@ -1,0 +1,78 @@
+.bin-switch{
+    flex: 1;
+    width: 52px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 26px;
+    line-height: 28px;
+    background-color: #ccc;
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.bin-switch-large{
+    width: 68px;
+}
+
+.bin-switch:after{
+    content: "";
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    background-color: #fff;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    transition: left .2s ease-in-out,width .2s ease-in-out;
+}
+
+.bin-switch:active:after{
+    width: 30px;
+}
+
+.bin-switch-checked{
+    border-color: #39f;
+    background-color: #39f;
+}
+
+.bin-switch-checked:after{
+    left: 23px;
+}
+
+.bin-switch-large.bin-switch-checked:after{
+    left: 39px;
+}
+
+.bin-switch-checked:active:after{
+    left: 19px;
+}
+
+.bin-switch-large.bin-switch-checked:active:after{
+    left: 35px;
+}
+
+.bin-switch-inner{
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 31px;
+}
+
+.bin-switch-checked .bin-switch-inner{
+    left: 7px;
+}
+
+.bin-switch-disabled{
+    cursor: not-allowed;
+    background: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+.bin-switch-disabled:after {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.bin-switch-disabled .bin-switch-inner {
+    color: #ccc;
+}
