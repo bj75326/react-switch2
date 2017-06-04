@@ -26,6 +26,7 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.4",
     "react-fastclick": "^3.0.1",
+    "react-fontawesome": "^1.6.1",
     "style-loader": "^0.18.1",
     "webpack": "^2.5.1"
   },

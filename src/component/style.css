@@ -62,6 +62,14 @@
     left: 7px;
 }
 
+.bin-switch-large .bin-switch-inner{
+    left: 33px;
+}
+
+.bin-switch-checked.bin-switch-large .bin-switch-inner{
+    left: 12px;
+}
+
 .bin-switch-disabled{
     cursor: not-allowed;
     background: #f3f3f3;

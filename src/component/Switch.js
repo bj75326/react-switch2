@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 import styles from './style.css';
 
@@ -33,7 +34,8 @@ class Switch extends Component{
         checkedChild: null,
         unCheckedChild: null,
         ident: '',
-        size: ''
+        size: '',
+        icon: false
     };
 
     static PropTypes = {
@@ -44,7 +46,8 @@ class Switch extends Component{
         checkedChild: PropTypes.any,
         unCheckedChild: PropTypes.any,
         ident: PropTypes.required,
-        size: PropTypes.string
+        size: PropTypes.string,
+        icon: PropTypes.bool
     };
 
     componentWillReceiveProps(nextProps){
@@ -125,7 +128,7 @@ class Switch extends Component{
     }
 
     render(){
-        const {className, prefixCls, disabled, size} = this.props;
+        const {className, prefixCls, disabled, size, checkedChild, unCheckChild, icon} = this.props;
         const large = size === 'large' ? true : false;
 
         const checked = this.state.checked;
@@ -142,7 +145,9 @@ class Switch extends Component{
                 onTouchMove={this.handleTouchMove.bind(this)}
                 onTouchEnd={this.handleTouchEnd.bind(this)}
             >
-                <span className={styles[`${prefixCls}-inner`]}></span>
+                <span className={styles[`${prefixCls}-inner`]}>
+                    { icon? (checked? <FontAwesome name='check'/> : <FontAwesome name='close'/>): (checked? checkedChild : unCheckChild)}
+                </span>
             </span>
         );
     }
