@@ -85,7 +85,6 @@ body{
     overflow: scroll;
     position: relative;
     flex: 1 1 auto;
-    padding-bottom: 4rem;
 }
 
 .bin-cell-desc {
@@ -207,5 +206,9 @@ body{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+}
+
+.bin-placeholder{
+    height: 4rem;
 }
 

@@ -199,6 +199,7 @@ class Test extends Component {
                             </div>
                         </a>
                     </div>
+                    <div className="bin-placeholder"></div>
                 </div>
             </div>
         );
