@@ -8,22 +8,23 @@ class Test extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            switch_status_01: false,
-            switch_status_02: true,
-            switch_status_03: false,
-            switch_status_04: true,
-            switch_status_05: false,
-            switch_status_06: true,
-            switch_status_07: false,
-            switch_status_08: true,
-            switch_status_09: false
+            switch_status_01: {checked: false, disabled: false},
+            switch_status_02: {checked: true, disabled: false},
+            switch_status_03: {checked: false, disabled: false},
+            switch_status_04: {checked: true, disabled: false},
+            switch_status_05: {checked: false, disabled: false},
+            switch_status_06: {checked: true, disabled: false},
+            switch_status_07: {checked: false, disabled: false},
+            switch_status_08: {checked: true, disabled: false},
+            switch_status_09: {checked: false, disabled: true}
         };
     }
 
     toggle(ident){
         if(this.state.hasOwnProperty(ident)){
-            const toggledValue = !this.state[ident];
-            this.setState({[ident]: toggledValue});
+            const toggledValue = !this.state[ident].checked;
+            const disabled = this.state[ident].disabled;
+            this.setState({[ident]: {checked: toggledValue, disabled: disabled}});
         }
     }
 
@@ -47,10 +48,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_01}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_01.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_01} onChange={this.toggle.bind(this)} ident={"switch_status_01"}/>
+                                    <Switch checked={this.state.switch_status_01.checked} onChange={this.toggle.bind(this)} ident={"switch_status_01"}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -63,10 +64,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_02}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_02.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_02} onChange={this.toggle.bind(this)} ident={"switch_status_02"}/>
+                                    <Switch checked={this.state.switch_status_02.checked} onChange={this.toggle.bind(this)} ident={"switch_status_02"}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -82,10 +83,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_03}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_03.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_03} onChange={this.toggle.bind(this)} ident={"switch_status_03"} size={"large"}/>
+                                    <Switch checked={this.state.switch_status_03.checked} onChange={this.toggle.bind(this)} ident={"switch_status_03"} size={"large"}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -98,10 +99,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_04}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_04.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_04} onChange={this.toggle.bind(this)} ident={"switch_status_04"} size={"large"}/>
+                                    <Switch checked={this.state.switch_status_04.checked} onChange={this.toggle.bind(this)} ident={"switch_status_04"} size={"large"}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -117,10 +118,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_05}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_05.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_05} onChange={this.toggle.bind(this)} ident={"switch_status_05"} checkedChild={"开"} unCheckChild={"关"}/>
+                                    <Switch checked={this.state.switch_status_05.checked} onChange={this.toggle.bind(this)} ident={"switch_status_05"} checkedChild={"开"} unCheckChild={"关"}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -133,10 +134,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_06}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_06.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_06} onChange={this.toggle.bind(this)} ident={"switch_status_06"} checkedChild={"ON"} unCheckChild={"OFF"} size={"large"}/>
+                                    <Switch checked={this.state.switch_status_06.checked} onChange={this.toggle.bind(this)} ident={"switch_status_06"} checkedChild={"ON"} unCheckChild={"OFF"} size={"large"}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -152,10 +153,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_07}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_07.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_07} onChange={this.toggle.bind(this)} ident={"switch_status_07"} icon={true}/>
+                                    <Switch checked={this.state.switch_status_07.checked} onChange={this.toggle.bind(this)} ident={"switch_status_07"} icon={true}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -168,10 +169,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_08}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_08.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_08} onChange={this.toggle.bind(this)} ident={"switch_status_08"} icon={true}/>
+                                    <Switch checked={this.state.switch_status_08.checked} onChange={this.toggle.bind(this)} ident={"switch_status_08"} icon={true}/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">
@@ -187,10 +188,10 @@ class Test extends Component {
                             </div>
                             <div className="bin-cell-content">
                                 <div className="bin-cell-title">
-                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_09}</span>
+                                    <span className="bin-cell-text">{'开关状态: ' + this.state.switch_status_09.checked}</span>
                                 </div>
                                 <div className="bin-cell-value">
-                                    <Switch checked={this.state.switch_status_09} onChange={this.toggle.bind(this)} ident={"switch_status_09"} icon={true}/>
+                                    <Switch checked={this.state.switch_status_09.checked} onChange={this.toggle.bind(this)} ident={"switch_status_09"} disabled="true"/>
                                 </div>
                             </div>
                             <div className="bin-cell-right">

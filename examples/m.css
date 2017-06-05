@@ -16,7 +16,7 @@ html, body{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    min-height: 100%;
+    height: 100%;
 }
 
 html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p {
@@ -34,9 +34,18 @@ body{
     height: 100%;
 }
 
+#App{
+    height: 100%;
+}
+
 .page{
     position: relative;
     height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
 }
 
 .subtitle{
@@ -46,6 +55,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    flex: 0 0 auto;
 }
 
 .subtitle .page-back{
@@ -74,6 +84,8 @@ body{
     width: 100%;
     overflow: scroll;
     position: relative;
+    flex: 1 1 auto;
+    padding-bottom: 4rem;
 }
 
 .bin-cell-desc {

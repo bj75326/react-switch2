@@ -35,7 +35,8 @@ class Switch extends Component{
         unCheckedChild: null,
         ident: '',
         size: '',
-        icon: false
+        icon: false,
+        disabled: false
     };
 
     static PropTypes = {
@@ -61,7 +62,8 @@ class Switch extends Component{
 
     shouldComponentUpdate(nextProps, nextState){
         console.log('in shouldComponentUpdate');
-        if(nextProps.checked === this.props.checked && nextState.checked === this.state.checked){
+        //console.log(nextProps.disabled);
+        if(nextProps.checked === this.props.checked && nextState.checked === this.state.checked && nextProps.disabled === this.props.disabled){
             return false;
         }
         return true;
@@ -140,10 +142,10 @@ class Switch extends Component{
             [styles[`${prefixCls}-large`]] : large
         });
         return (
-            <span className={switchClassName} onClick={this.handleClick.bind(this)}
-                onTouchStart={this.handleTouchStart.bind(this)}
-                onTouchMove={this.handleTouchMove.bind(this)}
-                onTouchEnd={this.handleTouchEnd.bind(this)}
+            <span className={switchClassName} onClick={disabled ? '' : this.handleClick.bind(this)}
+                onTouchStart={disabled? '' : this.handleTouchStart.bind(this)}
+                onTouchMove={disabled? '' : this.handleTouchMove.bind(this)}
+                onTouchEnd={disabled? '' : this.handleTouchEnd.bind(this)}
             >
                 <span className={styles[`${prefixCls}-inner`]}>
                     { icon? (checked? <FontAwesome name='check'/> : <FontAwesome name='close'/>): (checked? checkedChild : unCheckChild)}
